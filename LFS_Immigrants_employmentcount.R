@@ -284,7 +284,7 @@ Province <-  main_gg %>% filter(GEO != "Canada", GEO!= "Toronto, Ontario", GEO !
                 
                 Canada$Month <- factor(Canada$Month, levels = c('05', '04', '03', '02', '01'))
                 
-                ggplot(Canada, aes(x=Month, y=VALUE, fill = imm_status)) +
+               plot2 <- ggplot(Canada, aes(x=Month, y=VALUE, fill = imm_status)) +
                   geom_bar(position = 'dodge', stat = 'identity') +
                   geom_text(aes(x=Month, y= VALUE, label = VALUE), position = position_dodge(width = 1), hjust = -0.1) +
                   scale_x_discrete(breaks = c('01', '02', '03', '04', '05'), labels = c('Jan', 'Feb', 'Mar', 'Apr', 'May')) +
@@ -293,11 +293,14 @@ Province <-  main_gg %>% filter(GEO != "Canada", GEO!= "Toronto, Ontario", GEO !
                   theme_bw() +
                   theme(legend.position = 'bottom',
                         legend.title = element_blank(),
-                        axis.title.x = element_blank()) 
+                        axis.title.x = element_blank())
+               
+               ggsave(plot = plot2, "Employmentlevel2.png", path = "K:/RDA/LMIC Tools and Training/Economist folders/Bolanle/OLIP Economic Sector Table", bg = 'transparent', device = NULL, 
+                      scale = 1, width = 30, height = 12, units = "cm", dpi = 600, limitsize = TRUE) 
                 
                 Canada$Month <- factor(Canada$Month, levels = c('05', '04', '03', '02', '01'))
                 
-                ggplot(Canada, aes(x=Month, y=VALUE, fill = imm_status)) +
+               plot1 <- ggplot(Canada, aes(x=Month, y=VALUE, fill = imm_status)) +
                   geom_bar(position = 'dodge', stat = 'identity') +
                   geom_text(aes(x=Month, y= VALUE, label = VALUE), position = position_dodge(width = 1), hjust = -0.1) +
                   scale_x_discrete(breaks = c('01', '02', '03', '04', '05'), labels = c('Jan', 'Feb', 'Mar', 'Apr', 'May')) +
@@ -307,3 +310,8 @@ Province <-  main_gg %>% filter(GEO != "Canada", GEO!= "Toronto, Ontario", GEO !
                   theme(legend.position = 'bottom',
                         legend.title = element_blank(),
                         axis.title.y = element_blank()) 
+               
+               ggsave(plot = plot1, "Employmentlevel1.png", path = "K:/RDA/LMIC Tools and Training/Economist folders/Bolanle/OLIP Economic Sector Table", bg = 'transparent', device = NULL, 
+                      scale = 1, width = 30, height = 12, units = "cm", dpi = 600, limitsize = TRUE) 
+                
+              
