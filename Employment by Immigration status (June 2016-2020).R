@@ -80,17 +80,17 @@ plot1 <-
         axis.title.x = element_blank(),
         axis.text.y=element_text(color='black', size=12),
         axis.title.y=element_text(size = 15),
-        plot.title.position = 'panel',
+        #plot.title.position = 'panel',
         plot.title = element_text(size=15, hjust = 0.5),
         plot.caption = element_text(size=10)) +
   geom_label_repel(data=subset(main_c, REF_DATE == '2016-03-01'), aes(y=normalized_can, 
                                                                       label=paste0('Employment in Mar 2016\nCanadian Born: ', scales::comma(round(can*1000, -3)), 
                                                                                    '\nLanded Immigrants: ', scales::comma(round(imm*1000, -3)))),
-                   nudge_y = -4, nudge_x = 30, segment.color = 'black') +
+                   nudge_y = -4 , nudge_x = 30, segment.color = 'black') +
   geom_label_repel(data=subset(main_c, REF_DATE == '2020-06-01'), aes(y=normalized_imm,
                                                                       label=paste0('Employment in Jun 2020\nLanded Immigrants: ', scales::comma(round(imm*1000, -3)),
                                                                                    '\n Change from Mar 2020: ', round(growth_imm*100), '%')),
-                   nudge_x = -300, nudge_y = 4, fill = 'dodgerblue2', color = 'white', segment.color = 'dodgerblue2') +
+                   nudge_x = -300, nudge_y = 8, fill = 'dodgerblue2', color = 'white', segment.color = 'dodgerblue2') +
   geom_label_repel(data=subset(main_c, REF_DATE == '2020-06-01'), aes(y=normalized_can,
                                                                       label=paste0('Employment in Jun 2020\nCanadian Born: ', scales::comma(round(can*1000, -3)),
                                                                                    '\n Change from Mar 2020: ', round(growth_can*100), '%')),
